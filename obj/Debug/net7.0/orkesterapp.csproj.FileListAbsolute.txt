@@ -235,12 +235,12 @@ E:\orkesterapp\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.orkester
 E:\orkesterapp\obj\Debug\net7.0\staticwebassets.pack.json
 E:\orkesterapp\obj\Debug\net7.0\staticwebassets.build.json
 E:\orkesterapp\obj\Debug\net7.0\staticwebassets.development.json
-E:\orkesterapp\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\orkesterapp\obj\Debug\net7.0\scopedcss\bundle\orkesterapp.styles.css
-E:\orkesterapp\obj\Debug\net7.0\scopedcss\projectbundle\orkesterapp.bundle.scp.css
 E:\orkesterapp\obj\Debug\net7.0\orkesterapp.csproj.CopyComplete
 E:\orkesterapp\obj\Debug\net7.0\orkesterapp.dll
 E:\orkesterapp\obj\Debug\net7.0\refint\orkesterapp.dll
 E:\orkesterapp\obj\Debug\net7.0\orkesterapp.pdb
 E:\orkesterapp\obj\Debug\net7.0\orkesterapp.genruntimeconfig.cache
 E:\orkesterapp\obj\Debug\net7.0\ref\orkesterapp.dll
+E:\orkesterapp\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\orkesterapp\obj\Debug\net7.0\scopedcss\projectbundle\orkesterapp.bundle.scp.css

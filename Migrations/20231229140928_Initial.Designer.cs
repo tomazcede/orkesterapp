@@ -12,7 +12,7 @@ using orkesterapp.Data;
 namespace orkesterapp.Migrations
 {
     [DbContext(typeof(OrchesterContext))]
-    [Migration("20231227235326_Initial")]
+    [Migration("20231229140928_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,22 +43,21 @@ namespace orkesterapp.Migrations
 
             modelBuilder.Entity("orkesterapp.Models.Performance", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("OrchesterID")
                         .HasColumnType("int");
 
                     b.Property<int>("VenueID")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrchesterID", "VenueID");
+
+                    b.HasIndex("VenueID");
 
                     b.ToTable("Performances", (string)null);
                 });
@@ -102,13 +101,17 @@ namespace orkesterapp.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrchesterID")
+                    b.Property<int>("OrchesterID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RoleID")
+                    b.Property<int>("RoleID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("OrchesterID");
+
+                    b.HasIndex("RoleID");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -132,6 +135,61 @@ namespace orkesterapp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Venues", (string)null);
+                });
+
+            modelBuilder.Entity("orkesterapp.Models.Performance", b =>
+                {
+                    b.HasOne("orkesterapp.Models.Orchester", "Orchester")
+                        .WithMany("Performances")
+                        .HasForeignKey("OrchesterID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("orkesterapp.Models.Venue", "Venue")
+                        .WithMany("Performances")
+                        .HasForeignKey("VenueID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Orchester");
+
+                    b.Navigation("Venue");
+                });
+
+            modelBuilder.Entity("orkesterapp.Models.User", b =>
+                {
+                    b.HasOne("orkesterapp.Models.Orchester", "Orchester")
+                        .WithMany("Users")
+                        .HasForeignKey("OrchesterID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("orkesterapp.Models.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Orchester");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("orkesterapp.Models.Orchester", b =>
+                {
+                    b.Navigation("Performances");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("orkesterapp.Models.Role", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("orkesterapp.Models.Venue", b =>
+                {
+                    b.Navigation("Performances");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,145 +9,149 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = orkesterapp
 build_property.RootNamespace = orkesterapp
-build_property.ProjectDir = e:\orkesterapp\
+build_property.ProjectDir = E:\orkesterapp\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = e:\orkesterapp
+build_property.MSBuildProjectDirectory = E:\orkesterapp
 build_property._RazorSourceGeneratorDebug = 
 
-[e:/orkesterapp/Views/Home/AuthUser.cshtml]
+[E:/orkesterapp/Views/Home/AuthUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBdXRoVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Home/Index.cshtml]
+[E:/orkesterapp/Views/Home/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/orkesterapp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Home/Member.cshtml]
+[E:/orkesterapp/Views/Home/Member.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW1iZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Home/Privacy.cshtml]
+[E:/orkesterapp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Orchester/Create.cshtml]
+[E:/orkesterapp/Views/Orchester/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JjaGVzdGVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Orchester/Delete.cshtml]
+[E:/orkesterapp/Views/Orchester/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JjaGVzdGVyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Orchester/Details.cshtml]
+[E:/orkesterapp/Views/Orchester/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JjaGVzdGVyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Orchester/Edit.cshtml]
+[E:/orkesterapp/Views/Orchester/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JjaGVzdGVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Orchester/Index.cshtml]
+[E:/orkesterapp/Views/Orchester/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JjaGVzdGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Performanceontroller/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VvbnRyb2xsZXJcQ3JlYXRlLmNzaHRtbA==
+[E:/orkesterapp/Views/Performance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Performanceontroller/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VvbnRyb2xsZXJcRGVsZXRlLmNzaHRtbA==
+[E:/orkesterapp/Views/Performance/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Performanceontroller/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VvbnRyb2xsZXJcRGV0YWlscy5jc2h0bWw=
+[E:/orkesterapp/Views/Performance/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Performanceontroller/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VvbnRyb2xsZXJcRWRpdC5jc2h0bWw=
+[E:/orkesterapp/Views/Performance/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Performanceontroller/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VvbnRyb2xsZXJcSW5kZXguY3NodG1s
+[E:/orkesterapp/Views/Performance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZm9ybWFuY2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Role/Create.cshtml]
+[E:/orkesterapp/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Role/Delete.cshtml]
+[E:/orkesterapp/Views/Role/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Role/Details.cshtml]
+[E:/orkesterapp/Views/Role/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Role/Edit.cshtml]
+[E:/orkesterapp/Views/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Role/Index.cshtml]
+[E:/orkesterapp/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Shared/Error.cshtml]
+[E:/orkesterapp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/orkesterapp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/User/Create.cshtml]
+[E:/orkesterapp/Views/User/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/User/Delete.cshtml]
+[E:/orkesterapp/Views/User/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/User/Details.cshtml]
+[E:/orkesterapp/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/User/Edit.cshtml]
+[E:/orkesterapp/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/User/Index.cshtml]
+[E:/orkesterapp/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Venue/Create.cshtml]
+[E:/orkesterapp/Views/Venue/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Venue/Delete.cshtml]
+[E:/orkesterapp/Views/Venue/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Venue/Details.cshtml]
+[E:/orkesterapp/Views/Venue/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudWVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Venue/Edit.cshtml]
+[E:/orkesterapp/Views/Venue/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Venue/Index.cshtml]
+[E:/orkesterapp/Views/Venue/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/_ViewImports.cshtml]
+[E:/orkesterapp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/_ViewStart.cshtml]
+[E:/orkesterapp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/orkesterapp/Views/Shared/_Layout.cshtml]
+[E:/orkesterapp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-t12y9t430p

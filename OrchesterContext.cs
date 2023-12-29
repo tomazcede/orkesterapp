@@ -12,6 +12,14 @@ public class OrchesterContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Performance>().HasKey(am =>new{
+            am.OrchesterID,
+            am.VenueID
+        });
+
+        modelBuilder.Entity<Performance>().HasOne(o=>o.Orchester).WithMany(am=>am.Performances).HasForeignKey(o=>o.OrchesterID);
+        modelBuilder.Entity<Performance>().HasOne(o=>o.Venue).WithMany(am=>am.Performances).HasForeignKey(o=>o.VenueID);
+
         modelBuilder.Entity<User>().ToTable("Users");
         modelBuilder.Entity<Role>().ToTable("Roles");
 

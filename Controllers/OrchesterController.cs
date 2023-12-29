@@ -58,6 +58,15 @@ namespace orkesterapp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,OrchestraName")] Orchester orchester)
         {
+            foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                    Console.WriteLine(error.Exception);
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(orchester);

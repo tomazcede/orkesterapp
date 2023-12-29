@@ -10,6 +10,9 @@ public class User
     public string Email { get; set; }
     public string Geslo { get; set; }
 
-    public int? RoleID  { get; set; }
-    public int? OrchesterID  { get; set; }
+
+    public int RoleID { get; set; }
+    public Role? Role { get; set; }
+    public int OrchesterID { get; set; }
+    public Orchester? Orchester { get; set; }
 }

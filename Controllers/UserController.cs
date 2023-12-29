@@ -22,9 +22,8 @@ namespace orkesterapp.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'OrchesterContext.Users'  is null.");
+            var orchesterContext = _context.Users.Include(u => u.Orchester).Include(u => u.Role);
+            return View(await orchesterContext.ToListAsync());
         }
 
         // GET: User/Details/5
@@ -36,6 +35,8 @@ namespace orkesterapp.Controllers
             }
 
             var user = await _context.Users
+                .Include(u => u.Orchester)
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
@@ -48,6 +49,8 @@ namespace orkesterapp.Controllers
         // GET: User/Create
         public IActionResult Create()
         {
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID");
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID");
             return View();
         }
 
@@ -64,6 +67,8 @@ namespace orkesterapp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
             return View(user);
         }
 
@@ -80,31 +85,8 @@ namespace orkesterapp.Controllers
             {
                 return NotFound();
             }
-            return View(user);
-        }
-
-        public async Task<IActionResult> GetUser(string email, string pass)
-        {
-            if (_context.Users == null)
-            {
-                return NotFound();
-            }
-
-            int id = 0;
-
-            foreach (var item in _context.Users)
-            {
-                if(item.Email == email && item.Geslo == pass){
-                    id = item.ID;
-                    break;
-                }
-            }
-
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
             return View(user);
         }
 
@@ -140,6 +122,8 @@ namespace orkesterapp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
             return View(user);
         }
 
@@ -152,6 +136,8 @@ namespace orkesterapp.Controllers
             }
 
             var user = await _context.Users
+                .Include(u => u.Orchester)
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
