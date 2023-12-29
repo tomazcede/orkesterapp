@@ -10,16 +10,16 @@ using orkesterapp.Models;
 
 namespace orkesterapp.Controllers
 {
-    public class Performanceontroller : Controller
+    public class Performancecontroller : Controller
     {
         private readonly OrchesterContext _context;
 
-        public Performanceontroller(OrchesterContext context)
+        public Performancecontroller(OrchesterContext context)
         {
             _context = context;
         }
 
-        // GET: Performanceontroller
+        // GET: Performancecontroller
         public async Task<IActionResult> Index()
         {
               return _context.Performance != null ? 
@@ -27,7 +27,7 @@ namespace orkesterapp.Controllers
                           Problem("Entity set 'OrchesterContext.Performance'  is null.");
         }
 
-        // GET: Performanceontroller/Details/5
+        // GET: Performancecontroller/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Performance == null)
@@ -45,13 +45,13 @@ namespace orkesterapp.Controllers
             return View(performance);
         }
 
-        // GET: Performanceontroller/Create
+        // GET: Performancecontroller/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Performanceontroller/Create
+        // POST: Performancecontroller/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +67,7 @@ namespace orkesterapp.Controllers
             return View(performance);
         }
 
-        // GET: Performanceontroller/Edit/5
+        // GET: Performancecontroller/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Performance == null)
@@ -83,7 +83,7 @@ namespace orkesterapp.Controllers
             return View(performance);
         }
 
-        // POST: Performanceontroller/Edit/5
+        // POST: Performancecontroller/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +118,7 @@ namespace orkesterapp.Controllers
             return View(performance);
         }
 
-        // GET: Performanceontroller/Delete/5
+        // GET: Performancecontroller/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Performance == null)
@@ -136,7 +136,7 @@ namespace orkesterapp.Controllers
             return View(performance);
         }
 
-        // POST: Performanceontroller/Delete/5
+        // POST: Performancecontroller/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

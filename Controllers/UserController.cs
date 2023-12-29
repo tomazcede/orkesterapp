@@ -83,6 +83,31 @@ namespace orkesterapp.Controllers
             return View(user);
         }
 
+        public async Task<IActionResult> GetUser(string email, string pass)
+        {
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+
+            int id = 0;
+
+            foreach (var item in _context.Users)
+            {
+                if(item.Email == email && item.Geslo == pass){
+                    id = item.ID;
+                    break;
+                }
+            }
+
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+
         // POST: User/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

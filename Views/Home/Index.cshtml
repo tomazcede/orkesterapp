@@ -2,7 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
+@if (TempData.ContainsKey("notfound"))
+{
+    <script>alert("Email and password do not match");</script>
+}
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Login to unlock features:</p>
+    <form id="loginform" asp-action="AuthUser" 
+        data-ajax="true"
+        data-ajax-method="Get"
+        data-ajax-update="product"
+        data_ajax_mode="replace">
+        <input name="email" type="email" placeholder="Email">
+        <br />
+        <input name="pass" type="password" placeholder="Password">
+        <br />
+        <input type="submit" value="Login" />
+    </form>
 </div>
