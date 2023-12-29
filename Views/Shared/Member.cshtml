@@ -1,0 +1,30 @@
+@model orkesterapp.Models.User
+
+@{
+    ViewData["Title"] = "Orchestra Member Page";
+}
+
+<div>
+    <h4>Hello @Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)</h4>
+    @Html.ActionLink(
+        linkText: "Details",
+        actionName: "Details",
+        controllerName: "User",
+        routeValues: new {
+            id = Model.ID
+        },
+        htmlAttributes: null
+    )
+    <br />
+    <a>Logout</a>
+    <hr>
+    
+    <div>
+        @Html.DisplayFor(model => model.Orchester.OrchestraName)
+    </div>
+    <div>
+        @Html.DisplayFor(model => model.Orchester.Performances[0].Date)
+    </div>
+
+    
+</div>

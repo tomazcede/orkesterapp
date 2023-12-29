@@ -50,7 +50,7 @@ namespace orkesterapp.Controllers
         public IActionResult Create()
         {
             ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID");
-            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID");
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace orkesterapp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
-            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName", user.RoleID);
             return View(user);
         }
 

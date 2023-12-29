@@ -46,6 +46,14 @@ public class HomeController : Controller
     
         if(search == null)
             return View("Index", true);
+
+        search.Orchester = await _context.Orchester.FindAsync(search.OrchesterID);
+        
+        foreach (Performance performance in _context.Performance)
+        {
+            if(performance.OrchesterID == search.OrchesterID)
+                search.Orchester.Performances.Add(performance);
+        }
         
         if(search.RoleID == 1)
             return View("Member", search);
@@ -56,11 +64,6 @@ public class HomeController : Controller
         
         return View("Index", true);
 
-    }
-
-    public IActionResult Member(User user)
-    {
-        return View(user);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
