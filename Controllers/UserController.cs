@@ -49,7 +49,7 @@ namespace orkesterapp.Controllers
         // GET: User/Create
         public IActionResult Create()
         {
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID");
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName");
             ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName");
             return View();
         }
@@ -67,7 +67,7 @@ namespace orkesterapp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", user.OrchesterID);
             ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName", user.RoleID);
             return View(user);
         }
@@ -85,8 +85,8 @@ namespace orkesterapp.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
-            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", user.OrchesterID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName", user.RoleID);
             return View(user);
         }
 
@@ -122,8 +122,8 @@ namespace orkesterapp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", user.OrchesterID);
-            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "ID", user.RoleID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", user.OrchesterID);
+            ViewData["RoleID"] = new SelectList(_context.Role, "ID", "RoleName", user.RoleID);
             return View(user);
         }
 

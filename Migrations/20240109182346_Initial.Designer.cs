@@ -12,7 +12,7 @@ using orkesterapp.Data;
 namespace orkesterapp.Migrations
 {
     [DbContext(typeof(OrchesterContext))]
-    [Migration("20231229140928_Initial")]
+    [Migration("20240109182346_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,19 +43,24 @@ namespace orkesterapp.Migrations
 
             modelBuilder.Entity("orkesterapp.Models.Performance", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("OrchesterID")
                         .HasColumnType("int");
 
                     b.Property<int>("VenueID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.HasKey("ID");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrchesterID", "VenueID");
+                    b.HasIndex("OrchesterID");
 
                     b.HasIndex("VenueID");
 

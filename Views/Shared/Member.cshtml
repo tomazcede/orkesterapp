@@ -20,11 +20,15 @@
     <hr>
     
     <div>
-        @Html.DisplayFor(model => model.Orchester.OrchestraName)
+    @foreach (var item in Model.Orchester.Performances) {
+            <tr>
+                <td>
+                    @item.Venue.VenueName
+                </td>
+                <td>
+                    @item.Date
+                </td>
+            </tr>
+    }
     </div>
-    <div>
-        @Html.DisplayFor(model => model.Orchester.Performances[0].Date)
-    </div>
-
-    
 </div>

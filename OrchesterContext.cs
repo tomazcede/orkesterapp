@@ -13,8 +13,7 @@ public class OrchesterContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Performance>().HasKey(am =>new{
-            am.OrchesterID,
-            am.VenueID
+            am.ID
         });
 
         modelBuilder.Entity<Performance>().HasOne(o=>o.Orchester).WithMany(am=>am.Performances).HasForeignKey(o=>o.OrchesterID);

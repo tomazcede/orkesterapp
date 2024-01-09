@@ -49,8 +49,8 @@ namespace orkesterapp.Controllers
         // GET: Performance/Create
         public IActionResult Create()
         {
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID");
-            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "ID");
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName");
+            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName");
             return View();
         }
 
@@ -76,8 +76,8 @@ namespace orkesterapp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", performance.OrchesterID);
-            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "ID", performance.VenueID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", performance.OrchesterID);
+            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName", performance.VenueID);
             return View(performance);
         }
 
@@ -94,8 +94,8 @@ namespace orkesterapp.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", performance.OrchesterID);
-            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "ID", performance.VenueID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", performance.OrchesterID);
+            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName", performance.VenueID);
             return View(performance);
         }
 
@@ -131,8 +131,8 @@ namespace orkesterapp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "ID", performance.OrchesterID);
-            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "ID", performance.VenueID);
+            ViewData["OrchesterID"] = new SelectList(_context.Orchester, "ID", "OrchestraName", performance.OrchesterID);
+            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName", performance.VenueID);
             return View(performance);
         }
 

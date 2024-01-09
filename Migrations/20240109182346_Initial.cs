@@ -83,14 +83,15 @@ namespace orkesterapp.Migrations
                 name: "Performances",
                 columns: table => new
                 {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OrchesterID = table.Column<int>(type: "int", nullable: false),
-                    VenueID = table.Column<int>(type: "int", nullable: false),
-                    ID = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    VenueID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Performances", x => new { x.OrchesterID, x.VenueID });
+                    table.PrimaryKey("PK_Performances", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Performances_Orchesters_OrchesterID",
                         column: x => x.OrchesterID,
@@ -104,6 +105,11 @@ namespace orkesterapp.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Performances_OrchesterID",
+                table: "Performances",
+                column: "OrchesterID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Performances_VenueID",

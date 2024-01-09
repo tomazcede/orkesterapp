@@ -1,0 +1,37 @@
+@model IEnumerable<orkesterapp.Models.Performance>
+
+@{
+    ViewData["Title"] = "Member Page";
+}
+
+<h1>Hello</h1>
+<a href="/member/edit">Edit data</a>
+<a href="/member/logout">Log-out</a>
+<hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue.VenueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

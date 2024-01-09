@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace orkesterapp.Models;
@@ -19,10 +20,12 @@ public class Performance
     public DateTime Date { get; set; }
 
 
-
     public int OrchesterID { get; set; }
+    [ForeignKey("OrchesterID")]
     public Orchester? Orchester { get; set; }
+
     public int VenueID { get; set; }
+    [ForeignKey("VenueID")]
     public Venue? Venue { get; set; }
 }
 
