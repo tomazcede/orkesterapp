@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = e:\orkesterapp
 build_property._RazorSourceGeneratorDebug = 
 
+[e:/orkesterapp/Views/Conductor/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZHVjdG9yXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[e:/orkesterapp/Views/Conductor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZHVjdG9yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[e:/orkesterapp/Views/Conductor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZHVjdG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [e:/orkesterapp/Views/Home/AuthUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBdXRoVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,10 +114,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [e:/orkesterapp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[e:/orkesterapp/Views/Shared/Member.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1lbWJlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [e:/orkesterapp/Views/Shared/_ValidationScriptsPartial.cshtml]

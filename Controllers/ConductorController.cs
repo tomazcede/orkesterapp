@@ -8,14 +8,15 @@ using System.Security.Claims;
 using orkesterapp.Models;
 using orkesterapp.Data;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Security.Cryptography;
 
 namespace orkesterapp.Controllers;
 
-public class MemberController : Controller
+public class ConductorController : Controller
 {
     private readonly OrchesterContext _context;
 
-    public MemberController(OrchesterContext context)
+    public ConductorController(OrchesterContext context)
     {
         _context = context;
     }
@@ -70,16 +71,62 @@ public class MemberController : Controller
         }
 
         int oID = int.Parse(HttpContext.User.FindFirstValue("orchestraID"));
-        
-        var memberContext = await _context.Performance.Include(u => u.Orchester).Include(v => v.Venue).ToListAsync();
-        memberContext.RemoveAll(b => b.OrchesterID != oID);
+    
+        var conductorContext = _context.Users.ToList();
 
-        return View(memberContext);
+        conductorContext.RemoveAll(b => b.OrchesterID != oID);
+        conductorContext.RemoveAll(b => b.RoleID != 1);
+
+        return View(conductorContext);
+    }
+
+    public async Task<IActionResult> Add()
+    {
+        if(!SignedIn()){
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        TempData["OID"] = int.Parse(HttpContext.User.FindFirstValue("orchestraID"));
+
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("ID,LastName,FirstMidName,Email,Geslo,RoleID,OrchesterID")] User user)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return RedirectToAction(nameof(Add));
+    }
+
+    // POST: User/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (_context.Users == null)
+        {
+            return Problem("Entity set 'OrchesterContext.Users'  is null.");
+        }
+        var user = await _context.Users.FindAsync(id);
+        
+        if (user != null)
+        {
+            _context.Users.Remove(user);
+        }
+        
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 
     private bool SignedIn()
     {
-        if(HttpContext.User.Identity.Name != null && HttpContext.User.FindFirstValue(ClaimTypes.Role) == "Member"){
+        if(HttpContext.User.Identity.Name != null && HttpContext.User.FindFirstValue(ClaimTypes.Role) == "Conductor"){
             return true;
         }
         return false;
