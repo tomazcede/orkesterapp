@@ -1,9 +1,10 @@
+@using orkesterapp.Models;
 @model IEnumerable<orkesterapp.Models.User>
 
 @{
     ViewData["Title"] = "Conductor Page";
 
-    var oID = TempData["OID"];
+    var perfs = TempData["performances"] as IEnumerable<Performance>;
 }
 
 <h1>Hello</h1>
@@ -11,40 +12,82 @@
 <a href="/conductor/logout">Log-out</a>
 <hr>
 
-<h3>Members:</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstMidName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstMidName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
+<p>
+    <h3>Members:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstMidName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
 
-                <form asp-action="Delete">
-                    <input type="hidden" asp-for="@item.ID" name="ID" />
-                    <input type="submit" value="Remove" />
-                </form>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="@item.ID" name="ID" />
+                        <input type="submit" value="Remove" />
+                    </form>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
 
-<a href="/conductor/add/">Add member</a>
+    <a href="/conductor/add/">Add member</a>
+</p>
+
+<p>
+    <h3>Performances:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Venue name:
+                </th>
+                <th>
+                    Date:
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in perfs) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Venue.VenueName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+
+                    <form asp-action="DeletePerformance">
+                        <input type="hidden" asp-for="@item.ID" name="ID" />
+                        <input type="submit" value="Remove" />
+                    </form>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+
+    <a href="/conductor/addperformance/">Add performance</a>
+</p>
+
 

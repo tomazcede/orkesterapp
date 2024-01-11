@@ -77,6 +77,11 @@ public class ConductorController : Controller
         conductorContext.RemoveAll(b => b.OrchesterID != oID);
         conductorContext.RemoveAll(b => b.RoleID != 1);
 
+        var perfContext = await _context.Performance.Include(u => u.Orchester).Include(v => v.Venue).ToListAsync();
+        perfContext.RemoveAll(b => b.OrchesterID != oID);
+
+        TempData["performances"] = perfContext;
+
         return View(conductorContext);
     }
 
@@ -123,6 +128,61 @@ public class ConductorController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+
+    // POST: User/DeletePerformance/5
+    [HttpPost, ActionName("DeletePerformance")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeletePerformance(int id)
+    {
+        if (_context.Performance == null)
+        {
+            return Problem("Entity set 'OrchesterContext.Users'  is null.");
+        }
+        var perf = await _context.Performance.FindAsync(id);
+        
+        if (perf != null)
+        {
+            _context.Performance.Remove(perf);
+        }
+        
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> AddPerformance()
+    {
+        if(!SignedIn()){
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+        
+        ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName");
+        TempData["OID"] = int.Parse(HttpContext.User.FindFirstValue("orchestraID"));
+
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+     public async Task<IActionResult> CreatePerformance([Bind("ID,Date,OrchesterID,VenueID")] Performance performance)
+        {
+            foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                    Console.WriteLine(error.Exception);
+                }
+            }
+            
+            if (ModelState.IsValid)
+            {
+                _context.Add(performance);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["VenueID"] = new SelectList(_context.Venue, "ID", "VenueName", performance.VenueID);
+            return View(performance);
+        }
 
     private bool SignedIn()
     {
