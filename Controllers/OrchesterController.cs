@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 using orkesterapp.Data;
 using orkesterapp.Models;
 
@@ -22,6 +25,9 @@ namespace orkesterapp.Controllers
         // GET: Orchester
         public async Task<IActionResult> Index()
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
               return _context.Orchester != null ? 
                           View(await _context.Orchester.ToListAsync()) :
                           Problem("Entity set 'OrchesterContext.Orchester'  is null.");
@@ -30,6 +36,10 @@ namespace orkesterapp.Controllers
         // GET: Orchester/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+
             if (id == null || _context.Orchester == null)
             {
                 return NotFound();
@@ -48,6 +58,10 @@ namespace orkesterapp.Controllers
         // GET: Orchester/Create
         public IActionResult Create()
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+
             return View();
         }
 
@@ -79,6 +93,10 @@ namespace orkesterapp.Controllers
         // GET: Orchester/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+
             if (id == null || _context.Orchester == null)
             {
                 return NotFound();
@@ -130,6 +148,10 @@ namespace orkesterapp.Controllers
         // GET: Orchester/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+
             if (id == null || _context.Orchester == null)
             {
                 return NotFound();
@@ -150,6 +172,10 @@ namespace orkesterapp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if(!SignedIn()){
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            
             if (_context.Orchester == null)
             {
                 return Problem("Entity set 'OrchesterContext.Orchester'  is null.");
@@ -167,6 +193,14 @@ namespace orkesterapp.Controllers
         private bool OrchesterExists(int id)
         {
           return (_context.Orchester?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+        private bool SignedIn()
+        {
+            if(HttpContext.User.Identity.Name != null && HttpContext.User.FindFirstValue(ClaimTypes.Role) == "Admin"){
+                return true;
+            }
+            return false;
         }
     }
 }
