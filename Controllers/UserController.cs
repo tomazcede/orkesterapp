@@ -222,7 +222,7 @@ namespace orkesterapp.Controllers
             if(HttpContext.User.Identity.Name != null && HttpContext.User.FindFirstValue(ClaimTypes.Role) == "Admin"){
                 return true;
             }
-            return true;
+            return false;
         }
     }
 }
