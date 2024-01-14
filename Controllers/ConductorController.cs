@@ -8,7 +8,10 @@ using System.Security.Claims;
 using orkesterapp.Models;
 using orkesterapp.Data;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace orkesterapp.Controllers;
 
@@ -52,6 +55,15 @@ public class ConductorController : Controller
         {
             try
             {
+                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                        password: user.Geslo!,
+                        salt: Encoding.ASCII.GetBytes("sol"),
+                        prf: KeyDerivationPrf.HMACSHA256,
+                        iterationCount: 100000,
+                        numBytesRequested: 256 / 8));
+                    
+                user.Geslo = hashed;
+
                 _context.Update(user);
                 await _context.SaveChangesAsync();
             }
@@ -102,6 +114,15 @@ public class ConductorController : Controller
     {
         if (ModelState.IsValid)
         {
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                    password: user.Geslo!,
+                    salt: Encoding.ASCII.GetBytes("sol"),
+                    prf: KeyDerivationPrf.HMACSHA256,
+                    iterationCount: 100000,
+                    numBytesRequested: 256 / 8));
+                
+            user.Geslo = hashed;
+
             _context.Add(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

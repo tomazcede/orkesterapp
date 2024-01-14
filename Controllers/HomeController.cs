@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
+using System.Text;
+
 using orkesterapp.Models;
 using orkesterapp.Data;
 using Microsoft.EntityFrameworkCore;
@@ -43,9 +47,16 @@ public class HomeController : Controller
 
         User search = null;
 
+        string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            password: pass!,
+            salt: Encoding.ASCII.GetBytes("sol"),
+            prf: KeyDerivationPrf.HMACSHA256,
+            iterationCount: 100000,
+            numBytesRequested: 256 / 8));
+
         foreach (User user in users)
         {
-            if(user.Email == email && user.Geslo == pass){
+            if(user.Email == email && user.Geslo == hashed){
                 search = user;
                 break;
             }

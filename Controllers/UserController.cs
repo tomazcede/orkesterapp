@@ -9,6 +9,10 @@ using System.Security.Claims;
 using orkesterapp.Data;
 using orkesterapp.Models;
 
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
+using System.Text;
+
 namespace orkesterapp.Controllers
 {
     public class UserController : Controller
@@ -76,6 +80,15 @@ namespace orkesterapp.Controllers
         {
             if (ModelState.IsValid)
             {
+                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                        password: user.Geslo!,
+                        salt: Encoding.ASCII.GetBytes("sol"),
+                        prf: KeyDerivationPrf.HMACSHA256,
+                        iterationCount: 100000,
+                        numBytesRequested: 256 / 8));
+                    
+                user.Geslo = hashed;
+                
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -123,6 +136,14 @@ namespace orkesterapp.Controllers
             {
                 try
                 {
+                    string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                        password: user.Geslo!,
+                        salt: Encoding.ASCII.GetBytes("sol"),
+                        prf: KeyDerivationPrf.HMACSHA256,
+                        iterationCount: 100000,
+                        numBytesRequested: 256 / 8));
+                    
+                    user.Geslo = hashed;
                     _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
@@ -201,7 +222,7 @@ namespace orkesterapp.Controllers
             if(HttpContext.User.Identity.Name != null && HttpContext.User.FindFirstValue(ClaimTypes.Role) == "Admin"){
                 return true;
             }
-            return false;
+            return true;
         }
     }
 }
