@@ -37,6 +37,13 @@ namespace orkesterapp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Orchesters", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            OrchestraName = "test"
+                        });
                 });
 
             modelBuilder.Entity("orkesterapp.Models.Performance", b =>
@@ -80,6 +87,23 @@ namespace orkesterapp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 3,
+                            RoleName = "Admin"
+                        },
+                        new
+                        {
+                            ID = 1,
+                            RoleName = "Member"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            RoleName = "Conductor"
+                        });
                 });
 
             modelBuilder.Entity("orkesterapp.Models.User", b =>
@@ -117,6 +141,18 @@ namespace orkesterapp.Migrations
                     b.HasIndex("RoleID");
 
                     b.ToTable("Users", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Email = "root@root.si",
+                            FirstMidName = "root",
+                            Geslo = "qHd4KKiYoPaJPNkvY9RKsFE7nY1By32kBNTxVEymeAY=",
+                            LastName = "root",
+                            OrchesterID = 1,
+                            RoleID = 3
+                        });
                 });
 
             modelBuilder.Entity("orkesterapp.Models.Venue", b =>

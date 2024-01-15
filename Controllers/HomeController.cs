@@ -123,4 +123,52 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register([Bind("ID,OrchestraName")] Orchester orchester)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(orchester);
+            await _context.SaveChangesAsync();
+            return Redirect("/Home/RegisterUser?id="+orchester.ID);
+        }
+        return View(orchester);
+    }
+
+    public IActionResult RegisterUser(int id)
+    {
+        TempData["oid"] = id;
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RegisterUser([Bind("ID,LastName,FirstMidName,Email,Geslo,RoleID,OrchesterID")] User user)
+    {
+        if (ModelState.IsValid)
+        {
+            string geslo = user.Geslo;
+
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                    password: user.Geslo!,
+                    salt: Encoding.ASCII.GetBytes("sol"),
+                    prf: KeyDerivationPrf.HMACSHA256,
+                    iterationCount: 100000,
+                    numBytesRequested: 256 / 8));
+                
+            user.Geslo = hashed;
+            
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+            return Redirect("/Home/AuthUser?email="+user.Email+"&pass="+geslo);
+        }
+        return View(user);
+    }
 }
