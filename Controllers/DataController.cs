@@ -26,6 +26,7 @@ public class DataController : ControllerBase
         _context = context;
     }
 
+    [HttpGet]
     [Route("user")]
     public async Task<ActionResult<User>> User(string email, string pass){
         List<User> users = await _context.Users.ToListAsync();
@@ -58,6 +59,7 @@ public class DataController : ControllerBase
         return CreatedAtAction(nameof(User),search);
     }
 
+    [HttpGet]
     [Route("performances")]
     public async Task<ActionResult<List<Performance>>> Performance(int id){
         var performances = await _context.Performance.Include(v => v.Venue).ToListAsync();

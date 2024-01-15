@@ -244,3 +244,9 @@ E:\orkesterapp\obj\Debug\net7.0\orkesterapp.genruntimeconfig.cache
 E:\orkesterapp\obj\Debug\net7.0\ref\orkesterapp.dll
 E:\orkesterapp\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\orkesterapp\obj\Debug\net7.0\scopedcss\projectbundle\orkesterapp.bundle.scp.css
+E:\orkesterapp\obj\Debug\net7.0\orkesterapp.sourcelink.json
+E:\orkesterapp\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\orkesterapp\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\orkesterapp\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\orkesterapp\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\orkesterapp\obj\Debug\net7.0\orkesterapp.MvcApplicationPartsAssemblyInfo.cs
