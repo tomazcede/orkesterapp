@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("orkesterapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+211576a0911c155c774d31fafdf928241b3a56a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61959a8611bea12cebb880d0d29e0ad7d037ae5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("orkesterapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("orkesterapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
