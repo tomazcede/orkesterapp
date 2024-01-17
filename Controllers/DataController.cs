@@ -59,7 +59,7 @@ public class DataController : ControllerBase
         return CreatedAtAction(nameof(User),search);
     }
 
-    [HttpGet]
+    [HttpPost]
     [Route("performances")]
     public async Task<ActionResult<List<Performance>>> Performance([FromBody]int id){
         var performances = await _context.Performance.Include(v => v.Venue).ToListAsync();
