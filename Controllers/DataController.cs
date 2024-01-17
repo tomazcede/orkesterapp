@@ -26,15 +26,15 @@ public class DataController : ControllerBase
         _context = context;
     }
 
-    [HttpGet]
+    [HttpPost]
     [Route("user")]
-    public async Task<ActionResult<User>> User(string email, string pass){
+    public async Task<ActionResult<User>> User([FromBody]Dictionary<string, string> u){
         List<User> users = await _context.Users.ToListAsync();
 
         User search = null;
 
         string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            password: pass!,
+            password: u["Geslo"]!,
             salt: Encoding.ASCII.GetBytes("sol"),
             prf: KeyDerivationPrf.HMACSHA256,
             iterationCount: 100000,
@@ -42,7 +42,7 @@ public class DataController : ControllerBase
 
         foreach (User user in users)
         {
-            if(user.Email == email && user.Geslo == hashed){
+            if(user.Email == u["Email"] && user.Geslo == hashed){
                 search = user;
                 break;
             }
@@ -61,7 +61,7 @@ public class DataController : ControllerBase
 
     [HttpGet]
     [Route("performances")]
-    public async Task<ActionResult<List<Performance>>> Performance(int id){
+    public async Task<ActionResult<List<Performance>>> Performance([FromBody]int id){
         var performances = await _context.Performance.Include(v => v.Venue).ToListAsync();
         performances.RemoveAll(b => b.OrchesterID != id);
         performances.ForEach(p => p.Venue.Performances = null);
