@@ -16,10 +16,13 @@
 
 <h2>Slike:</h2>
 <p>Login page</p>
-<p><img src="/images/Login.png" width="500"></p>
+<p><img src="/Images/Login.png" width="500" /></p>
 <p>Član page</p>
-<p><img src="/images/Member.png" width="500"></p>
+<p><img src="/Images/Member.png" width="500" /></p>
 <p>Dirigent page</p>
-<p><img src="/images/Dirigent.png" width="500"></p>
+<p><img src="/Images/Dirigent.png" width="500" /></p>
 <p>Admin page</p>
-<p><img src="/images/Admin.png" width="500"></p>
+<p><img src="/Images/Admin.png" width="500" /></p>
+
+<h2>Opis aplikacije:</h2>
+<p>Aplikacija je opisana v svojem repository-ju: <a href="https://github.com/tomazcede/orkestermobileapp">OrkesterMobileApp</a></p>
