@@ -13,6 +13,7 @@
 		<li>Adminom omogoča: pogled ter urejanje vseh podatkov v bazi</li>
 	</ul>
 </p>
+<p>Autentikacija uporabnika se izvaja s cookie-jim. Ko se uporabnik prijavi/registrira se ustvari cookie, ki poteče v 20min. Gesla so kodirana s PBKDF2 algoritmom.</p>
 
 <h2>Slike:</h2>
 <p>Login page</p>
