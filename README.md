@@ -16,10 +16,10 @@
 
 <h2>Slike:</h2>
 <p>Login page</p>
-<p><img href="/images/Login.png" /></p>
+<p><img src="/images/Login.png" width="500"></p>
 <p>Član page</p>
-<p><img href="/images/Member.png" /></p>
+<p><img src="/images/Member.png" width="500"></p>
 <p>Dirigent page</p>
-<p><img href="/images/Dirigent.png" /></p>
+<p><img src="/images/Dirigent.png" width="500"></p>
 <p>Admin page</p>
-<p><img href="/images/Admin.png" /></p>
+<p><img src="/images/Admin.png" width="500"></p>
