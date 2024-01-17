@@ -14,6 +14,7 @@
 	</ul>
 </p>
 <p>Autentikacija uporabnika se izvaja s cookie-jim. Ko se uporabnik prijavi/registrira se ustvari cookie, ki poteče v 20min. Gesla so kodirana s PBKDF2 algoritmom.</p>
+<p>Aplikacija vsebuje tudi <a href="https://orkesterapp.azurewebsites.net/swagger/index.html">API</a>, ki omogoča delovanje mobilne aplikacije. Podatke prejema/vrača v JSON formatu.</p>
 
 <h2>Slike:</h2>
 <p>Login page</p>
