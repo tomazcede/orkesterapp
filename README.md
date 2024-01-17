@@ -2,6 +2,7 @@
 
 <p>Avtor: Tomaž Čede, 63210050</p>
 
+<h2>Opis:</h2>
 <p>Izdelal sem spletno aplikacijo Orkesterapp. Namenjena je lažjemu organiziranju pri izvedbi nastopov.</p>
 <p>Omogoča uporabnikom:
 	<ul>
@@ -12,3 +13,13 @@
 		<li>Adminom omogoča: pogled ter urejanje vseh podatkov v bazi</li>
 	</ul>
 </p>
+
+<h2>Slike:</h2>
+<p>Login page</p>
+<p><img href="/images/Login.png" /></p>
+<p>Član page</p>
+<p><img href="/images/Member.png" /></p>
+<p>Dirigent page</p>
+<p><img href="/images/Dirigent.png" /></p>
+<p>Admin page</p>
+<p><img href="/images/Admin.png" /></p>
