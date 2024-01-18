@@ -24,9 +24,6 @@
 <p>Admin page</p>
 <p><img src="/Images/Admin.png" width="500" /></p>
 
-<p>Baza ima naslenje tabele: User, Role, Orchester, Venue ter Performance.</p>
-<p><img src="/Images/Baza.png" width="500" /></p>
-
 <h2>Opis mobilne aplikacije:</h2>
 <p>Aplikacija je opisana v svojem repository-ju: <a href="https://github.com/tomazcede/orkestermobileapp">OrkesterMobileApp</a></p>
 <p>Login page aplikacije</p>
