@@ -13,9 +13,8 @@
 		<li>Adminom omogoča: pogled ter urejanje vseh podatkov v bazi</li>
 	</ul>
 </p>
-<p>Autentikacija uporabnika se izvaja s cookie-jim. Ko se uporabnik prijavi/registrira se ustvari cookie, ki poteče v 20min. Gesla so kodirana s PBKDF2 algoritmom.</p>
 
-<h2>Slike:</h2>
+<h3>Slike:</h3>
 <p>Login page</p>
 <p><img src="/Images/Login.png" width="500" /></p>
 <p>Član page</p>
@@ -24,6 +23,9 @@
 <p><img src="/Images/Dirigent.png" width="500" /></p>
 <p>Admin page</p>
 <p><img src="/Images/Admin.png" width="500" /></p>
+
+<p>Baza ima naslenje tabele: User, Role, Orchester, Venue ter Performance.</p>
+<p><img src="/Images/Baza.png" width="500" /></p>
 
 <h2>Opis mobilne aplikacije:</h2>
 <p>Aplikacija je opisana v svojem repository-ju: <a href="https://github.com/tomazcede/orkestermobileapp">OrkesterMobileApp</a></p>
